@@ -23,8 +23,8 @@ This guide is written for macOS users. Make sure you have these following items 
 
 # Setup
 Open your mac terminal to your projects home directory
-- ```sam init``` or use template
-- ```make setup```
+- ```git clone https://github.com/mjehrhart/sam-rust-template.git``` or use ```sam init``` for a new install
+- ```make setup``` (uses the Makefile from this repo)
 - Make any changes to Makefile
 - Make any changes to template.yaml  
 
