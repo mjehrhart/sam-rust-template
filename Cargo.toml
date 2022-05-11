@@ -1,0 +1,22 @@
+[package]
+name = "sam-rust-template"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+#aws-config = "0.8"
+# aws-sdk-dynamodb = "0.8"
+#aws-smithy-client = { version = "0.38", features = ["test-util"] }
+futures = "0.3"   
+tokio = { version = "1.18.1", features = ["full"] }
+serde = { version = "1.0.136", features = ["derive"] }
+lambda_http = "0.5"
+aws-config = "0.11.0"
+aws-sdk-s3 = "0.11.0"
+
+[dev-dependencies]
+aws-smithy-http = "0.38"
+aws-types = { version = "0.8", features = ["hardcoded-credentials"] }
+http = "0.2"

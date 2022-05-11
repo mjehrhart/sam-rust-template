@@ -1,0 +1,11 @@
+/target
+config.json
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+*.DS_Store
+Desktop.ini
+scraps.rs 
+.DS_Store
+target
