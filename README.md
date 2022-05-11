@@ -50,7 +50,7 @@ Deploy to AWS
 Update Changes to test locally with SAM CLI
 - ```rust-musl-builder cargo build --release``` (takes a few minutes)
 
-- ```make bootstrap```
+- ```make bootstrap``` or ```make bootstrap_debug```
 - open browser to http://127.0.0.1:3000
 - SAM CLI will work off of the updated bootstrap file. That is why we update it here after any changes to the code.
 
