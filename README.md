@@ -63,16 +63,14 @@ Update Changes to test locally with SAM CLI
 - https://github.com/aws-samples/serverless-rust-demo
 
 - https://github.com/awslabs/aws-lambda-rust-runtime/blob/main/lambda-http/examples/hello-http.rs
-
-# Note
-I did not use ```sam build``` or ```sam deploy``` in this routine.  Honestly, I am not sure why both are not needed but they aren't if you follow this guide. There is an oddity about the Makefile and I don't understand why but this works if you put a Makefile in the project's root directory as well as placing a copy in the build/ directory.
+ 
 
 # Screenshots  
 
 #### Makefile
-Here is what my Makefile looks like (I got it from https://github.com/aws-samples/serverless-rust-demo/blob/main/Makefile. Works great.)
+Here is what my Makefile looks like. It works great for me.
 
-<img width="50%" alt="images/Screen Shot 2022-05-10 at 10.04.55 AM_DXMSvanyjLN1Hood.png" src="https://raw.githubusercontent.com/mjehrhart/assets/main/images/Screen Shot 2022-05-10 at 10.04.55 AM_DXMSvanyjLN1Hood.png">
+<img width="50%" alt="images/Screen Shot 2022-05-11 at 10.04.38 AM_gOO0tQxBTQudo5Re.png" src="https://raw.githubusercontent.com/mjehrhart/assets/main/images/Screen Shot 2022-05-11 at 10.04.38 AM_gOO0tQxBTQudo5Re.png">
 
 #### template.yaml
 Note the CodeUri points to the build/ directory.  This is where the bootstrap file be put.  So the CodeUri points to the location of the bootstrap for that function.  
