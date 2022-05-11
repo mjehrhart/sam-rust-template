@@ -1,7 +1,6 @@
-STACK_NAME ?= stack-sam-rust-test10
-NAME ?= sam-rust-test10
-# FUNCTIONS := get-thing
-
+STACK_NAME ?= stack-sam-rust-template
+NAME ?= sam-rust-template
+ 
 ARCH := aarch64-unknown-linux-gnu
 ARCH_SPLIT = $(subst -, ,$(ARCH))
 
@@ -17,11 +16,7 @@ ifeq (,$(shell which rustc))
 endif
 ifeq (,$(shell which cargo))
 	$(error "Could not found Cargo, please install it")
-endif
-# ifeq (,$(shell which cargo-lambda))
-# 	$(error "Could not found cargo-lambda, please install it")
-# 	cargo install cargo-lambda
-# endif 
+endif 
 ifeq (,$(shell which sam))
 	$(error "Could not found SAM CLI, please install it")
 endif
@@ -34,12 +29,7 @@ bootstrap:
  
 bootstrap_debug:
 	cp ./target/x86_64-unknown-linux-musl/debug/$(NAME) ./build/bootstrap 
- 
-
-# TODO - i think this is not needed since i user docker
-# build:
-# 	cargo lambda build --release --target $(ARCH)
-
+	
 deploy:
 	if [ -f samconfig.toml ]; \
 		then sam deploy --stack-name $(STACK_NAME); \
