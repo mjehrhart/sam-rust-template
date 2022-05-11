@@ -24,6 +24,14 @@ ifeq (,$(shell which artillery))
 	$(error "Could not found Artillery, it's required for load testing")
 endif
 
+build:  
+	docker run --rm -it -v "$$(pwd)":/home/rust/src ekidd/rust-musl-builder cargo build --release
+	cp ./target/x86_64-unknown-linux-musl/release/$(NAME) ./build/bootstrap 
+
+build_debug:  
+	docker run --rm -it -v "$$(pwd)":/home/rust/src ekidd/rust-musl-builder cargo build
+	cp ./target/x86_64-unknown-linux-musl/debug/$(NAME) ./build/bootstrap 
+	
 bootstrap:
 	cp ./target/x86_64-unknown-linux-musl/release/$(NAME) ./build/bootstrap 
  
