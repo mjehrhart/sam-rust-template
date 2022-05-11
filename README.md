@@ -10,7 +10,7 @@
 
 
 # Prerequisite
-This guide is written for macOS users. Make sure you have these following items installed and configured if needed. Installing these items takes only a few minutes. This guide will help you deploy rust lambdas into AWS using SAM CLI. Plus you can test locally using SAM CLI as well.
+This guide is written for macOS users. Make sure you have these following items installed and configured if needed. Installing these items takes only a few minutes. This guide will help you deploy rust lambdas into AWS using SAM CLI along with Docker. Plus you can test locally using SAM CLI as well. Save time by not deploying until you want too.
 
 - AWS SAM CLI  
 	https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-linux.html
