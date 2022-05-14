@@ -5,10 +5,7 @@ ARCH := aarch64-unknown-linux-gnu
 ARCH_SPLIT = $(subst -, ,$(ARCH))
 
 .PHONY: build deploy tests
-
-# all: build tests-unit deploy tests-integ
-# ci: build tests-unit
-
+ 
 setup:
 	mkdir build
 ifeq (,$(shell which rustc))
@@ -44,6 +41,9 @@ deploy:
 		else sam deploy -g --stack-name $(STACK_NAME); \
 	fi
 
+test:
+	sam local start-api
+	
 tests-unit:
 	cargo test --lib --bins
 
