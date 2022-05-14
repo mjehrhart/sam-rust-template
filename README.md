@@ -63,7 +63,7 @@ Update Changes to test locally with SAM CLI
 # Screenshots  
 
 #### Makefile
-Here is what my Makefile looks like. It works great for me. I encourage you to look inside the Makefile and see the commands are calling behind the scene.  I tried to make it simple and easy to follow (at least for me). If you have an suggestions about how to improve the Makefile of anything else, go ahead and post an issue in this repo and I'll do my best to update whatever it is that needs updating.
+Here is what my Makefile looks like. It works great for me. I encourage you to look inside the Makefile and see the commands are calling behind the scene.  I tried to make it simple and easy to follow (at least for me). If you have an suggestions about how to improve the Makefile of anything else, go ahead and post an issue in this repo and I'll do my best to update whatever it is that needs updating. Note, this Makefile screenshot probably will not reflect on the most recent changes that are found in the real file in this file. I added the Makefile screenshot just so people have a quick reference to look at if they are unfamiliar (like I am) with Makefiles.
 
 <img width="50%" alt="images/Screen Shot 2022-05-11 at 10.04.38 AM_gOO0tQxBTQudo5Re.png" src="https://raw.githubusercontent.com/mjehrhart/assets/main/images/Screen Shot 2022-05-11 at 10.04.38 AM_gOO0tQxBTQudo5Re.png">
 
