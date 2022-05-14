@@ -67,6 +67,8 @@ Here is what my Makefile looks like. It works great for me.
 <img width="50%" alt="images/Screen Shot 2022-05-11 at 10.04.38 AM_gOO0tQxBTQudo5Re.png" src="https://raw.githubusercontent.com/mjehrhart/assets/main/images/Screen Shot 2022-05-11 at 10.04.38 AM_gOO0tQxBTQudo5Re.png">
 
 #### template.yaml
-Note the CodeUri points to the build/ directory.  This is where the bootstrap file be put.  So the CodeUri points to the location of the bootstrap for that function.  
+Note the CodeUri points to the build/ directory.  This is where the bootstrap file will be put.  So the CodeUri points to the location of the bootstrap for that function.  
 
 <img width="50%" alt="images/Screen Shot 2022-05-10 at 10.00.09 AM_NDCdNwvovL0Tjp0Y.png" src="https://raw.githubusercontent.com/mjehrhart/assets/main/images/Screen Shot 2022-05-10 at 10.00.09 AM_NDCdNwvovL0Tjp0Y.png">
+
+updated 05/14/2022
