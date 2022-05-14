@@ -9,3 +9,6 @@ Desktop.ini
 scraps.rs 
 .DS_Store
 target
+/scraps
+.gitignore
+samconfig.toml
