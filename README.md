@@ -59,6 +59,8 @@ Update Changes to test locally with SAM CLI
 
 - https://github.com/awslabs/aws-lambda-rust-runtime/blob/main/lambda-http/examples/hello-http.rs
  
+# Note
+If you follow this guide and use this setup with the Makefile you will still need to go into the AWS Lamnda console and set the "Exexution Role" for the lambda to execute. I have not figured out how to change the IAM roles in the template.yaml file yet. So for now, I manual add the IAM role (with permissions to cloudwatch, lamda executions, etc...) in the console.
 
 # Screenshots  
 
