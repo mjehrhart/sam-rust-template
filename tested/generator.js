@@ -1,5 +1,3 @@
-const crypto = require('crypto');
-
 const THINGS = [
   "A", "B", "C", "D", "E", "F", "G", "H",
   "I", "J", "K", "L", "M", "N", "O", "P",
@@ -14,13 +12,11 @@ const NUMBER_STRINGS = [
 ];
 
 module.exports = {
-  generateProduct: function(context, events, done) {
-    const things = THINGS[Math.floor(Math.random() * THINGS.length)];
+  generate_test_data: function(context, events, done) {
+    
     const number_strings = NUMBER_STRINGS[Math.floor(Math.random() * NUMBER_STRINGS.length)];
 
-    context.vars.id = crypto.randomUUID();
-    context.vars.things =  `${things}`;
-    context.vars.price = Math.round(Math.random() * 10000) / 100;
+    context.vars.id = number_strings;
 
     return done();
   },

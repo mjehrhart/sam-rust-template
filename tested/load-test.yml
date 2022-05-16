@@ -1,0 +1,17 @@
+# https://docs-nine-inky.vercel.app/docs/guides/guides/test-script-reference
+# https://dev.to/brpaz/load-testing-your-applications-with-artillery-4m1p
+config:
+  target: "{{ $processEnvironment.API_URL }}"
+  processor: "generator.js"
+  phases:
+    - duration: 10
+      arrivalRate: 30
+scenarios: 
+  - flow:
+    - function: "generate_test_data" 
+    - log: "/station_id={{ id }}"
+    - get:
+        url: "/station_id={{ id }}"
+    name: "Testing"
+    weight: 8
+ 

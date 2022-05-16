@@ -1,3 +1,4 @@
+
 STACK_NAME ?= stack-sam-rust-template
 NAME ?= sam-rust-template
  
@@ -24,36 +25,29 @@ endif
 build:  
 	docker run --rm -it -v "$$(pwd)":/home/rust/src ekidd/rust-musl-builder cargo build --release
 	cp ./target/x86_64-unknown-linux-musl/release/$(NAME) ./build/bootstrap 
-
-build_debug:  
-	docker run --rm -it -v "$$(pwd)":/home/rust/src ekidd/rust-musl-builder cargo build
-	cp ./target/x86_64-unknown-linux-musl/debug/$(NAME) ./build/bootstrap 
-	
-bootstrap:
-	cp ./target/x86_64-unknown-linux-musl/release/$(NAME) ./build/bootstrap 
+	# alias rust-musl-builder='docker run --rm -it -v "$(pwd)":/home/rust/src ekidd/rust-musl-builder'
+	# rust-musl-builder cargo build --release
  
-bootstrap_debug:
-	cp ./target/x86_64-unknown-linux-musl/debug/$(NAME) ./build/bootstrap 
-	
+test:
+	sam local start-api
+ 
+test-unit:
+	cargo test --lib --bins
+
+test-integ:
+	RUST_BACKTRACE=1 API_URL=$$(aws cloudformation describe-stacks --stack-name $(STACK_NAME) \
+		--query 'Stacks[0].Outputs[?OutputKey==`PutApi`].OutputValue' \
+		--output text) \
+		cargo test
+
+test-load:
+	API_URL=$$(aws cloudformation describe-stacks --stack-name $(STACK_NAME) \
+		--query 'Stacks[0].Outputs[?OutputKey==`PutApi`].OutputValue' \
+		--output text) \
+		artillery run ./tested/load-test.yml
+ 
 deploy:
 	if [ -f samconfig.toml ]; \
 		then sam deploy --stack-name $(STACK_NAME); \
 		else sam deploy -g --stack-name $(STACK_NAME); \
 	fi
-
-test:
-	sam local start-api
-	
-tests-unit:
-	cargo test --lib --bins
-
-tests-integ:
-	RUST_BACKTRACE=1 API_URL=$$(aws cloudformation describe-stacks --stack-name $(STACK_NAME) \
-		--query 'Stacks[0].Outputs[?OutputKey==`ApiUrl`].OutputValue' \
-		--output text) cargo test
-
-tests-load:
-	API_URL=$$(aws cloudformation describe-stacks --stack-name $(STACK_NAME) \
-		--query 'Stacks[0].Outputs[?OutputKey==`ApiUrl`].OutputValue' \
-		--output text) artillery run tests/load-test.yml
- 
